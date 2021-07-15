@@ -34,5 +34,13 @@ module Bdfl
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+
+    #this will generate the test file alone with model so you don't have to generate manually
+    config.generators do |g|
+      g.test_framework = :rspec
+      #g.factory_bot false   # this will disable for auto g of factor_bot files
+    end
+    
   end
 end
