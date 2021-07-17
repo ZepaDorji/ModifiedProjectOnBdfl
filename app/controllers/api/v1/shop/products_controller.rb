@@ -12,6 +12,25 @@ module Api
                     render json: { done: true }
                 end
 
+                def index
+                    products = Product.all
+                    render json: { done: true }
+                end
+
+                def show 
+                    product = Product.find(params[:id]) 
+                    render json: {done: true}
+                end
+                def update
+                    Product.update(name: params[:product][:name])
+                    render json: { done: true }
+                end
+
+                def destroy
+                    Product.destroy
+                    render json: { done: true }
+                end
+
                 private
 
                 def create_params

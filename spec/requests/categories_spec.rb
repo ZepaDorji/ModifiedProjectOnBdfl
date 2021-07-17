@@ -69,7 +69,7 @@ RSpec.describe Category do
             params = {
                 category: {
                     name: 'Shirt', 
-                    id: user.id,
+                    id: user.id
                 }
             } 
             post api_v1_shop_categories_path, params: params
