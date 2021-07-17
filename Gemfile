@@ -40,6 +40,9 @@ end
 
 group :test do 
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
+  gem 'shoulda-matchers' 
+  gem 'pry'
+  gem 'database_cleaner'
 end
 
 group :development do

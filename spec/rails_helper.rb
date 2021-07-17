@@ -34,6 +34,14 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  #database clearner after every it block
+  config.before(:suite) do |test|
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+  config.before(:each) do |test|
+    DatabaseCleaner.start
+  end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -68,4 +76,12 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods 
   config.include Devise::Test::ControllerHelpers, :type => :controller
   config.include Warden::Test::Helpers
+
+  
+end
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
