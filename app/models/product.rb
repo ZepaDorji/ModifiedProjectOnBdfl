@@ -3,5 +3,5 @@ class Product < ApplicationRecord
     has_many :categories, through: :category_products 
     validates :name, presence: true, length:{ minimum: 4 } 
     validates :price, presence: true
-    validates :description, presence: true
+    validates :description, presence: true,length:{in: 5..100 }
 end

@@ -18,17 +18,33 @@ RSpec.describe Product, type: :model do
     end
   end
   
-  context 'validations' do
-    it { should validate_presence_of(:name) }
-    it 'validate' do 
-      user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
-      category = user.categories.create(name: 'Shirt')
-      expect(Category.count).to eq(1)
-      expect(category.name.length).to eq(5)
-      expect(category.name).to eq('Shirt')
-      # expect(category.name).to eq('kssdjsn')
+  context 'validations'do 
+  
+    it 'product name should have minimum of 4 length' do 
+      product = Product.create(name: 'T-shirt', price: 132.0, description: 'This s a shirt')
+      expect(product).to be_valid
+      product.name = 'asd' 
+      expect(product).to_not be_valid
+
+     end
+  
+    it 'product description should length in between 5 to 100'do
+    product = Product.create(name: 'T-shirt', price: 132.0, description: 'This s a shirt')
+    expect(product).to be_valid
+    product.description = 'asd'
+    expect(product).to_not be_valid
+     
     end
-  end 
+    it "description should type text"do 
+    product = Product.create(name: 'T-shirt', price: 132.0, description: 'This s a shirt')
+    expect(product.description).to be_a(String)
+    product.description = 1245
+    expect(product).to_not be_valid
+
+    end 
+  end
+
+
   
   context 'associations' do
     it { should have_many(:category_products) }
