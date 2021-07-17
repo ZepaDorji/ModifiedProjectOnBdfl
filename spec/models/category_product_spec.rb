@@ -23,6 +23,12 @@ RSpec.describe CategoryProduct, type: :model do
       expect(CategoryProduct.first.category_id).to eq(1)
       expect(CategoryProduct.first.product_id).to eq(1)
     end
+
+    it 'sample class for creating category and product using through table' do 
+      user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
+      SampleClass.new(user).call
+      expect(CategoryProduct.count).to eq(2)
+    end
   end
 
   context 'associations' do
