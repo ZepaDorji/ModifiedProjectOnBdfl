@@ -27,7 +27,8 @@ module Api
                 end
 
                 def destroy
-                    Product.destroy
+                    product = Product.find(params[:id])
+                    product.destroy
                     render json: { done: true }
                 end
 

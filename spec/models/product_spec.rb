@@ -33,6 +33,8 @@ RSpec.describe Product, type: :model do
     expect(product).to be_valid
     product.description = 'asd'
     expect(product).to_not be_valid
+    product.description = 'asd'*101
+    expect(product).to_not be_valid
      
     end
     it "description should type text"do 

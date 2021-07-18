@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe Product do
 
     context 'Create Product' do
@@ -78,24 +77,23 @@ RSpec.describe Product do
         end
     end
 
-    # context 'Destroy Product' do
-    #     it 'Delete a product' do
-    #         user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
-    #         category = Category.create(name:'ApplePhone',id:user.id)
-    #         params = {
-    #             product: {
-    #                 name: Faker::Book.title, 
-    #                 price: Faker::Commerce.price,
-    #                 description: Faker::String.random(length: 5..100),
-    #                 id: category.id
+    context 'Destroy Product' do
+        it 'Delete a product' do
+            user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
+            category = Category.create(name:'ApplePhone',id:user.id)
+            params = {
+                product: {
+                    name: Faker::Book.title, 
+                    price: Faker::Commerce.price,
+                    description: Faker::String.random(length: 5..100),
+                    id: category.id
 
-    #             }
-    #         }
-    #         post api_v1_shop_products_path, params: params
-    #         binding.pry
-    #         delete api_v1_shop_product_path(Product.first.id), params: { product:{id:category.id }}
-    #         expect(status).to eq(200)
-    #         expect(Product.count).to eq(0)
-    #     end
-    # end
+                }
+            }
+            post api_v1_shop_products_path, params: params
+            delete api_v1_shop_product_path(Product.first.id), params: { product:{id:category.id }}
+            expect(status).to eq(200)
+            expect(Product.count).to eq(0)
+        end
+    end
 end
