@@ -42,7 +42,7 @@ RSpec.describe Product do
 
 
     context 'Show Product' do
-        it 'Show all the products' do
+        it 'Show a product' do
             params = {
                 product: {
                     name: Faker::Book.title, 
