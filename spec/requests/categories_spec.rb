@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Category do
-
-    context 'Create Category' do
+    
+    context 'Crud of Category' do
         it 'creates category' do
-            user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
+            user = User.create(email: 'admin1@gmail.com', password: 'admin@1234', admin: true)
             params = {
                 category: {
                     name: 'Shirt', 

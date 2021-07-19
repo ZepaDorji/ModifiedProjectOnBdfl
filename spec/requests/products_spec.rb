@@ -3,14 +3,14 @@ RSpec.describe Product do
 
     context 'Create Product' do
         it 'creates products' do
+           
             params = {
-                product: {
-                    name: Faker::Book.title, 
-                    price: Faker::Commerce.price,
-                    description: Faker::String.random(length: 5..100)
-
-                }
-            }
+                 product: {
+                            name: Faker::Book.title, 
+                            price: Faker::Commerce.price,
+                            description: Faker::String.random(length: 5..100)
+                        }   
+                    }
             post api_v1_shop_products_path, params: params
             expect(status).to eq(200)
             expect(Product.count).to eq(1)

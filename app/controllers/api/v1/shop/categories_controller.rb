@@ -2,13 +2,16 @@ module Api
     module V1 
         module Shop
             class CategoriesController < ApplicationController
+        
                 def create
-                    current_user.categories.create(name: create_params['name'])
-                    render json: { done: true }
+                    @category = current_user.categories.create(name: create_params['name'])
+                    render json: @category
                 end
 
                 def index
-                    render json: current_user.categories.all 
+                    @categories = current_user.categories.all 
+                    render json: @categories
+                    
                 end
 
                 def show 
