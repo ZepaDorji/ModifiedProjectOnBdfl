@@ -19,11 +19,11 @@ RSpec.describe Category do
         it 'list all categories for a user' do
             user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
             params = {
-                category: {
-                    name: 'Shirt', 
-                    id: user.id
-                }
-            } 
+                    category: {
+                        name: 'Shirt', 
+                        id: user.id
+                        }
+                    } 
             post api_v1_shop_categories_path, params: params
             post api_v1_shop_categories_path, params: params
             post api_v1_shop_categories_path, params: params

@@ -4,11 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :shop do
         resources :categories
-
         resources :products
-
         resources :category_products
-
+        resources :profiles
       end
     end
   end

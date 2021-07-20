@@ -91,7 +91,7 @@ RSpec.describe Product do
                 }
             }
             post api_v1_shop_products_path, params: params
-            delete api_v1_shop_product_path(Product.first.id), params: { product:{id:category.id }}
+            delete api_v1_shop_product_path(Product.first.id), params: { product:{id:category.id }} # product belongs to category
             expect(status).to eq(200)
             expect(Product.count).to eq(0)
         end
