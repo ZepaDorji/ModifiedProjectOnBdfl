@@ -4,7 +4,7 @@ class CategoryPolicy
 
     def initialize(user, category)
       @user = user
-      @post = category
+      @category = category
     end
     def create?
       user.admin?
