@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CategoryPolicy, type: :policy do
   user  = User.new(email: 'admin@gmail.com', password: 'password')
+  category = user.categories.new(name:'football')
 
   subject { described_class }
 
@@ -17,12 +18,12 @@ RSpec.describe CategoryPolicy, type: :policy do
 
   end
   permissions :destroy? do
-    it "cannot create destroy category is user is not an admin" do
-      expect(subject).not_to permit(User.new(admin:false ), Category.new())
+    it "cannot destroy category if the user is not an admin" do
+      expect(subject).not_to permit(User.new(admin:false ), category)
     end
 
-    it "can destroy category if user is an admin" do
-      expect(subject).to permit(User.new(admin: true), Category.new())
+    it "can destroy category if the user is an admin" do
+      expect(subject).to permit(User.new(admin: true), category)
     end
 
   end
