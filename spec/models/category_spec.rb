@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   context 'Successful Category Creation' do 
-    it 'create a new user' do 
+    it 'create a new category' do 
       user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
       category = user.categories.create(name: 'Shirt')
       expect(Category.count).to eq(1)
@@ -11,7 +11,7 @@ RSpec.describe Category, type: :model do
   end
 
   context 'Unsuccessful User Creation' do 
-    it 'create a new user' do 
+    it 'create a new category' do 
       category = Category.create(name: 'Shirt')
       expect(Category.count).to eq(0)
       expect(Category.first).to eq(nil)
