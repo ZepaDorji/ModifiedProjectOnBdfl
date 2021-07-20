@@ -27,4 +27,14 @@ RSpec.describe CategoryPolicy, type: :policy do
     end
 
   end
+
+  permissions :update? do 
+    it "admin can update category" do 
+      expect(subject).to permit(User.new(admin:true),category.name = 'Programming')
+    end
+
+    it "user cannot update category" do 
+      expect(subject).not_to permit(User.new(admin:false),category.name = 'Programming')
+    end
+  end
 end
