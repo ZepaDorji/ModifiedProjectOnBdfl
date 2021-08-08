@@ -13,7 +13,7 @@ RSpec.describe CategoryProduct, type: :model do
       expect(CategoryProduct.first.product_id).to eq(1)
     end
 
-    it 'creates category' do 
+    it 'creates product' do 
       user = User.create(email: 'admin1@gmail.com', password: 'admin@1234')
       user.categories.create(name: 'Shirt')
       Product.create(name: 'Shirt S', price: 234.22, description: 'This is a shirt')

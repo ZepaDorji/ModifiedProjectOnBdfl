@@ -5,7 +5,7 @@ gem used - Faker   : for generation of sample datas
          - Pundit  : user authorization
          - Rspec-rails : TDD
          - shoulda-matchers' : authorization testing with pundit
-         - pry              : debug
+         - pry              : debug, binding.pry
          - database_cleaner : cleaning of data after every it block
          -
 model and associations:

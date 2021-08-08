@@ -1,5 +1,7 @@
 class SampleClass
     attr_accessor :user
+    #getter and setter method for user
+    #user comes from the rspec model and its is out of SampleClass so we need getter and setter method. 
 
     def initialize(user)
         @user = user

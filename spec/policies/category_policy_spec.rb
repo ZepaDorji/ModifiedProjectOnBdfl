@@ -18,12 +18,15 @@ RSpec.describe CategoryPolicy, type: :policy do
 
   end
   permissions :destroy? do
+    category1 = user.categories.new(name:'Volleyball')
     it "cannot destroy category if the user is not an admin" do
-      expect(subject).not_to permit(User.new(admin:false ), category)
+      expect(subject).not_to permit(User.new(admin:false ), category1)
+      expect(category1.name).to eql("Volleyball")
     end
 
     it "can destroy category if the user is an admin" do
-      expect(subject).to permit(User.new(admin: true), category)
+      expect(subject).to permit(User.new(admin: true), category1.destroy)
+      
     end
 
   end

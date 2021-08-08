@@ -12,7 +12,7 @@ RSpec.describe Category, type: :model do
 
   context 'Unsuccessful User Creation' do 
     it 'create a new category' do 
-      category = Category.create(name: 'Shirt')
+      category = Category.create(name: 'Shirt')   # no user
       expect(Category.count).to eq(0)
       expect(Category.first).to eq(nil)
     end

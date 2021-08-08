@@ -9,10 +9,13 @@ RSpec.describe UserPolicy, type: :policy do
   permissions :create? do
       it "user cannot add  another users" do
         expect(subject).not_to permit(User.new(admin:false ), User.new())
+        expect(User.ids).to eql([])
       end
   
       it "admin can add user" do
-        expect(subject).to permit(User.new(admin: true), User.new())
+        user = User.new(email: 'dorji@gmail.com',password: "password",admin:true)
+        expect(subject).to permit(user, User.new())
+        expect(user.email).to eql('dorji@gmail.com')
       end
   end
 

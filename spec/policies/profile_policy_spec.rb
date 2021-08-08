@@ -29,7 +29,7 @@ RSpec.describe ProfilePolicy, type: :policy do
     end
 
     it "can delete profile if user is an admin" do
-      expect(subject).to permit(User.new(admin: true),Profile.new())
+      expect(subject).to permit(User.new(admin: true),Profile.destroy(User.ids))
     end
     
   end

@@ -11,8 +11,8 @@ RSpec.describe Product, type: :model do
     end
   end
 
-  context 'Unsuccessful User Creation' do 
-    it 'create a new user' do 
+  context 'Unsuccessful product Creation' do 
+    it 'create a new product' do 
       expect(Product.count).to eq(0)
       expect(Product.first).to eq(nil)
     end
